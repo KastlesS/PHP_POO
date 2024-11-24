@@ -1,5 +1,12 @@
 <?php
-require_once "/opt/lampp/htdocs/EntregaObjetos/Basico/Digimon.php";
+/* spl_autoload_register(function($nombreClase){
+    require_once "/opt/lamp/htdocs/Programacion/Basico/".$nombreClase.".php";
+}); 
+NO FUNCIONA Y NO SE POR QUE    */
+namespace Digimon;
+
+require_once "/opt/lampp/htdocs/Programacion/Basico/Digimon.php";
+
 class EquipoDigimon{
     public array $digimones;
 
@@ -22,9 +29,17 @@ class EquipoDigimon{
     public function getDigimones(): array {return $this->digimones;}
 
 	public function setDigimones(array $digimones): void {$this->digimones = $digimones;}
+
+    public function __toString():string{
+        $text="";
+        foreach($this->digimones as $value){
+            $text.=$value->nombre." "; 
+        }
+        return $text;
+    }
 }
 
-$dig1 = new Digimon("agumon",10,100);
+/* $dig1 = new Digimon("agumon",10,100);
 $dig2 = new Digimon("nicomon",23,50);
 $dig3 = new Digimon("ivanmon",1000,90);
 
@@ -35,9 +50,9 @@ echo "<br> <br> <br> <br>";
 
 $equipoClonado = clone($equipo);
 $equipo2 = new EquipoDigimon();
-$equipo2->setDigimones($equipoClonado);
 
-var_dump($equipo2->getDigimones());
+echo $equipo->__toString();
+*/
 
 
 

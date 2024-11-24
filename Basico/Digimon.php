@@ -1,4 +1,6 @@
 <?php
+namespace Digimon;
+
 class Digimon{
     public string $nombre;
     public int $ataque;
